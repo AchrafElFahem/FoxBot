@@ -1,16 +1,16 @@
+//import modules
 const Discord = require('discord.js');
-const client = new Discord.Client({
-    intents: 3276799
-});
 
 require('dotenv').config();
 
 
-const  token = process.env.FOXBOT_TOKEN;
+
+//define bot
+const bot = new Discord.Client({intents : 3276799});
+
+//login bot
+bot.login(process.env.FOXBOT_TOKEN);
 
 
-client.on('ready' , () => {
-    console.log(`${client.user.username} is back !`);
-});
-
-client.login(token);
+// alert than bot works
+bot.on('ready', () => {console.log(`${bot.user.username} is working!`);});
