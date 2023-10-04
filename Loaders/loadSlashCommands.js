@@ -14,7 +14,7 @@ module.exports = async (bot) => {
         .setDefaultMemberPermissions(command.permission === 'None'? null : command.permission);
 
         command.options?.forEach(option => {
-            slashcommand[`add${option.type.slice(1).toUpperCase() + option.type.slice(1,option.type.length)}Option`]
+            slashcommand[`add${option.type.slice(0,1).toUpperCase() + option.type.slice(1,option.type.length)}Option`]
             (opt => opt.setName(option.name).setDescription(option.description).setRequired(option.required));
         });
         commands.push(slashcommand);
